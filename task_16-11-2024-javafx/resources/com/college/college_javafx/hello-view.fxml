@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<!-- Главная панель -->
+
+<AnchorPane fx:id="main_pane" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" onMouseClicked="#stopFocus" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: rgb(30, 34, 37);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.college.college_javafx.HelloController">
+   <!-- Логотип -->
+   <ImageView fitHeight="94.0" fitWidth="275.0" layoutX="263.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@logo.png" />
+   </ImageView>
+
+   <!-- Label для уведомлений -->
+   <Label fx:id="label_notify" layoutX="358.0" layoutY="85.0" nodeOrientation="LEFT_TO_RIGHT" textFill="WHITE" visible="false">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+
+   <!-- Панель выбора действия (авторизация/регистрация) -->
+   <Pane fx:id="pane_auth_switcher" layoutY="98.0" prefHeight="502.0" prefWidth="800.0" visible="false">
+      <Button layoutX="200.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#setAuthForm" prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #787878;" styleClass="button-next" stylesheets="@styling.css" text="Авторизация">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="200.0" layoutY="250.0" mnemonicParsing="false" onMouseClicked="#setRegForm" prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #787878;" styleClass="button-next" stylesheets="@styling.css" text="Регистрация">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </Pane>
+
+   <!-- Панель авторизации -->
+   <Pane fx:id="pane_auth" layoutY="98.0" prefHeight="502.0" prefWidth="800.0" visible="false">
+      <TextField fx:id="login_login" focusTraversable="false" layoutX="200.0" layoutY="100.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="400.0" promptText="Введите логин..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="login_password" centerShape="false" focusTraversable="false" layoutX="200.0" layoutY="170.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="400.0" promptText="Введите пароль..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <Button layoutX="200.0" layoutY="240.0" mnemonicParsing="false" onMouseClicked="#authUser" prefHeight="55.0" prefWidth="400.0" styleClass="button-next" stylesheets="@styling.css" text="Войти">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="200.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#setStartForm" prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #9f3c3c;" styleClass="button-next" stylesheets="@styling.css" text="Назад">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </Pane>
+
+   <!-- Панель регистрации -->
+   <Pane fx:id="pane_reg" layoutY="98.0" prefHeight="502.0" prefWidth="800.0" visible="false">
+      <TextField fx:id="reg_login" centerShape="false" focusTraversable="false" layoutX="90.0" layoutY="50.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="300.0" promptText="Придумайте логин..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="reg_surname" centerShape="false" focusTraversable="false" layoutX="410.0" layoutY="50.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="300.0" promptText="Введите фамилию..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="reg_name" centerShape="false" focusTraversable="false" layoutX="90.0" layoutY="120.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="300.0" promptText="Введите имя..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="reg_lastname" centerShape="false" focusTraversable="false" layoutX="410.0" layoutY="120.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="300.0" promptText="Введите отчество..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="reg_password" centerShape="false" focusTraversable="false" layoutX="90.0" layoutY="190.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="300.0" promptText="Придумайте пароль..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="reg_password_2" centerShape="false" focusTraversable="false" layoutX="410.0" layoutY="190.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="300.0" promptText="Подтвердите пароль..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <Button layoutX="200.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#regUser" prefHeight="55.0" prefWidth="400.0" styleClass="button-next" stylesheets="@styling.css" text="Зарегистрироваться">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="200.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#setStartForm" prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #9f3c3c;" styleClass="button-next" stylesheets="@styling.css" text="Назад">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </Pane>
+
+   <!-- Панель администратора -->
+   <Pane fx:id="pane_admin" layoutY="98.0" prefHeight="502.0" prefWidth="800.0" visible="false">
+      <Button layoutX="130.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#addAdmin" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Добавить администратора">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="410.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#removeAdmin" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Удалить администратора">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="130.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#listAdmins" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Список администраторов">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="410.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#listUsers" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Список пользователей">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="130.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#listServices" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Список услуг">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="410.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#listRecords" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Список приёмов">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="130.0" layoutY="220.0" mnemonicParsing="false" onMouseClicked="#listAnimals" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Список животных">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="410.0" layoutY="220.0" mnemonicParsing="false" onMouseClicked="#listDoctors" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Список ветеринаров">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="130.0" layoutY="280.0" mnemonicParsing="false" onMouseClicked="#addDoctor" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Добавить ветеринара">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="410.0" layoutY="280.0" mnemonicParsing="false" onMouseClicked="#addService" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Добавить услугу">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="130.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#removeUser" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Удалить пользователя">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="410.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#removeAnimal" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Удалить животное">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="200.0" layoutY="410.0" mnemonicParsing="false" onMouseClicked="#leaveAccount" prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #9f3c3c;" styleClass="button-next" stylesheets="@styling.css" text="Выйти из аккаунта">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </Pane>
+
+   <!-- Панель удаления/добавления чего-либо (для администраторов) -->
+   <Pane fx:id="pane_admin_2_admin" layoutY="98.0" prefHeight="502.0" prefWidth="800.0" visible="false">
+      <TextField fx:id="admin_wr_login" centerShape="false" focusTraversable="false" layoutX="200.0" layoutY="100.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="400.0" promptText="Введите логин..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button layoutX="200.0" layoutY="170.0" mnemonicParsing="false" onMouseClicked="#admin_doo" prefHeight="55.0" prefWidth="400.0" styleClass="button-next" stylesheets="@styling.css" text="Добавить">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="200.0" layoutY="240.0" mnemonicParsing="false" onMouseClicked="#admin_cancel" prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #9f3c3c;" styleClass="button-next" stylesheets="@styling.css" text="Назад">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </Pane>
+
+   <!-- Панель со списком -->
+   <Pane fx:id="pane_list" layoutY="98.0" prefHeight="502.0" prefWidth="800.0" visible="false">
+      <Button layoutX="200.0" layoutY="425.0" mnemonicParsing="false" onMouseClicked="#admin_cancel" prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #9f3c3c;" styleClass="button-next" stylesheets="@styling.css" text="Назад">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="text_list" editable="false" layoutX="38.0" layoutY="41.0" prefHeight="364.0" prefWidth="725.0" styleClass="text-area" stylesheets="@styling.css">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+   </Pane>
+
+   <!-- Панель пользователя -->
+   <Pane fx:id="pane_user" layoutY="98.0" prefHeight="502.0" prefWidth="800.0" visible="false">
+      <Button layoutX="130.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#addAnimal" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Добавить животное">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="410.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#addRecord" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Записаться на приём">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="130.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#list_service" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Список услуг">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="410.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#list_doctors" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Список ветеринаров">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="130.0" layoutY="220.0" mnemonicParsing="false" onMouseClicked="#list_records_user" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Мои записи на приём">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="410.0" layoutY="220.0" mnemonicParsing="false" onMouseClicked="#list_animals_user" prefHeight="55.0" prefWidth="260.0" styleClass="button-next" stylesheets="@styling.css" text="Мои животные">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="200.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#leaveAccount" prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #9f3c3c;" styleClass="button-next" stylesheets="@styling.css" text="Выйти из аккаунта">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </Pane>
+
+   <!-- Панель добавления животного -->
+   <Pane fx:id="pane_add_animal" layoutY="98.0" prefHeight="502.0" prefWidth="800.0" visible="false">
+      <TextField fx:id="user_animal_name" centerShape="false" focusTraversable="false" layoutX="200.0" layoutY="100.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="400.0" promptText="Введите кличку..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="user_animal_breed" centerShape="false" focusTraversable="false" layoutX="200.0" layoutY="170.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="400.0" promptText="Введите породу..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button layoutX="200.0" layoutY="240.0" mnemonicParsing="false" onMouseClicked="#user_animal_add" prefHeight="55.0" prefWidth="400.0" styleClass="button-next" stylesheets="@styling.css" text="Добавить">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="200.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#admin_cancel" prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #9f3c3c;" styleClass="button-next" stylesheets="@styling.css" text="Назад">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </Pane>
+
+   <!-- Панель добавления ветеринара -->
+   <Pane fx:id="pane_add_doctor" layoutY="98.0" prefHeight="502.0" prefWidth="800.0" visible="false">
+      <TextField fx:id="admin_doctor_surname" centerShape="false" focusTraversable="false" layoutX="200.0" layoutY="100.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="400.0" promptText="Введите фамилию ветеринара..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="admin_doctor_name" centerShape="false" focusTraversable="false" layoutX="200.0" layoutY="170.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="400.0" promptText="Введите имя ветеринара..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="admin_doctor_lastname" centerShape="false" focusTraversable="false" layoutX="200.0" layoutY="240.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="400.0" promptText="Введите отчество ветеринара..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button layoutX="200.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#admin_doctor_add" prefHeight="55.0" prefWidth="400.0" styleClass="button-next" stylesheets="@styling.css" text="Добавить">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="200.0" layoutY="380.0" mnemonicParsing="false" onMouseClicked="#admin_cancel" prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #9f3c3c;" styleClass="button-next" stylesheets="@styling.css" text="Назад">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </Pane>
+
+   <!-- Панель добавления услуги -->
+   <Pane fx:id="pane_add_service" layoutY="98.0" prefHeight="502.0" prefWidth="800.0" visible="false">
+      <TextField fx:id="admin_service_name" centerShape="false" focusTraversable="false" layoutX="200.0" layoutY="100.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="400.0" promptText="Введите название услуги..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="admin_service_cost" centerShape="false" focusTraversable="false" layoutX="200.0" layoutY="170.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="400.0" promptText="Введите цену услуги..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button layoutX="200.0" layoutY="240.0" mnemonicParsing="false" onMouseClicked="#admin_service_add" prefHeight="55.0" prefWidth="400.0" styleClass="button-next" stylesheets="@styling.css" text="Добавить">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="200.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#admin_cancel" prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #9f3c3c;" styleClass="button-next" stylesheets="@styling.css" text="Назад">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </Pane>
+
+   <!-- Панель записи на осмотр -->
+   <Pane fx:id="pane_add_record" layoutY="98.0" prefHeight="502.0" prefWidth="800.0">
+      <TextField fx:id="user_record_doctor_fullname" centerShape="false" focusTraversable="false" layoutX="200.0" layoutY="50.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="400.0" promptText="Введите ФИО врача..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="user_record_animal_name" centerShape="false" focusTraversable="false" layoutX="200.0" layoutY="120.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="400.0" promptText="Введите кличку животного..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button layoutX="200.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#user_record_add" prefHeight="55.0" prefWidth="400.0" styleClass="button-next" stylesheets="@styling.css" text="Добавить">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="200.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#admin_cancel" prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #9f3c3c;" styleClass="button-next" stylesheets="@styling.css" text="Назад">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="user_record_service_name" centerShape="false" focusTraversable="false" layoutX="200.0" layoutY="190.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="55.0" prefWidth="400.0" promptText="Введите название услуги..." scaleShape="false" styleClass="field" stylesheets="@styling.css">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <DatePicker fx:id="user_datepicker" layoutX="200.0" layoutY="260.0" prefHeight="55.0" prefWidth="400.0" promptText="Выберите дату..." styleClass="date-picker" stylesheets="@styling.css" />
+   </Pane>
+</AnchorPane>

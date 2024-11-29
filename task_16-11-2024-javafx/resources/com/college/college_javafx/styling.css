@@ -1,0 +1,72 @@
+.field {
+    -fx-underline: none;
+    -fx-background-color: rgb(30, 34, 37);
+    -fx-border-color: #787878;
+    -fx-border-width: 1;
+    -fx-border-radius: 7;
+    -fx-stroke: none;
+    -fx-background-insets: 0, 1, 2;
+    -fx-faint-focus-color: transparent;
+    -fx-text-fill: #ffffff;
+}
+.button-next {
+    -fx-background-color: #157347;
+    -fx-border-color: transparent;
+    -fx-border-width: 1;
+    -fx-border-radius: 7;
+    -fx-stroke: none;
+    -fx-background-insets: 0, 1, 2;
+    -fx-faint-focus-color: transparent;
+    -fx-text-fill: #ffffff;
+}
+.text-area {
+    -fx-underline: none;
+    -fx-background-color: rgb(30, 34, 37);
+    -fx-border-color: #787878;
+    -fx-border-width: 1;
+    -fx-border-radius: 7;
+    -fx-stroke: none;
+    -fx-background-insets: 0, 1, 2;
+    -fx-faint-focus-color: transparent;
+    -fx-text-fill: #ffffff;
+}
+.text-area .content {
+    -fx-background-color: rgb(30, 34, 37);
+    -fx-border-radius: 0;
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+    -fx-text-fill: #ffffff;
+}
+.date-picker {
+    -fx-underline: none;
+    -fx-background-color: rgb(30, 34, 37);
+    -fx-border-width: 0;
+    -fx-border-radius: 0;
+    -fx-stroke: none;
+    -fx-background-insets: 0, 1, 2;
+    -fx-faint-focus-color: transparent;
+    -fx-text-fill: #ffffff;
+}
+.date-picker .text-field {
+    -fx-underline: none;
+    -fx-background-color: rgb(30, 34, 37);
+    -fx-border-color: #787878;
+    -fx-border-width: 1;
+    -fx-border-radius: 7 0 0 7;
+    -fx-stroke: none;
+    -fx-background-insets: 0, 1, 2;
+    -fx-faint-focus-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 18px;
+}
+.date-picker .arrow-button {
+    -fx-underline: none;
+    -fx-background-color: rgb(30, 34, 37);
+    -fx-border-color: #787878;
+    -fx-border-width: 1;
+    -fx-border-radius: 0 7 7 0;
+    -fx-stroke: none;
+    -fx-faint-focus-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+}
